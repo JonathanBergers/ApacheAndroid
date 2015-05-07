@@ -1,0 +1,52 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+
+        classpath 'com.android.tools.build:gradle:1.1.1'
+    }
+}
+apply plugin: 'com.android.application'
+
+
+
+repositories {
+    jcenter()
+}
+
+android {
+
+    packagingOptions {
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+
+
+    }
+
+
+    compileSdkVersion 21
+    buildToolsVersion "22.0.0"
+
+    defaultConfig {
+        applicationId "jonathan.bergers.apacheandroid.app"
+        minSdkVersion 21
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile files('libs/jackson-core-asl-1.9.11.jar')
+    compile files('libs/jackson-mapper-asl-1.9.11.jar')
+}
+
+
